@@ -19,7 +19,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp" />
 
-    <!--_____numpad buttons_____-->
+
     <Button
         android:id="@+id/button7"
         android:layout_width="50dp"
@@ -149,7 +149,7 @@
         android:id="@+id/buttonBackspace"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:text="<<"
+        android:text="A"
         android:textSize="20sp"
         android:layout_toEndOf="@id/buttonDiv"
         android:layout_alignBaseline="@id/buttonDiv" />
@@ -170,7 +170,6 @@
         android:layout_alignStart="@id/buttonClear"
         android:layout_alignBottom="@id/buttonAdd"
         android:layout_below="@id/buttonClear"  />
-    <!--____________________-->
 
     <TextView
         android:id="@+id/textViewResult"

@@ -24,7 +24,6 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         final Button div_bt = (Button) findViewById(R.id.buttonDiv);
 
 
-
         add_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
