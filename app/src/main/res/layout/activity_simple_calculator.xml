@@ -1,108 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SimpleCalculatorActivity">
 
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textViewFirstValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="102dp"
         android:layout_marginTop="120dp"
-        android:layout_marginLeft="95dp"
         android:text="@string/firstValue"
-        android:textSize="18dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
-
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextFirstValue"
+        android:inputType="numberDecimal"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/textView"
-        android:layout_alignBaseline="@id/textView"
-        android:layout_marginLeft="5dp" />
+        android:layout_toEndOf="@id/textViewFirstValue"
+        android:layout_alignBaseline="@id/textViewFirstValue"
+        android:layout_marginStart="5dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewSecondValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@id/textView"
-        android:layout_below="@id/textView"
+        android:layout_alignEnd="@id/textViewFirstValue"
+        android:layout_below="@id/textViewFirstValue"
         android:layout_marginTop="30dp"
         android:text="@string/secondValue"
-        android:textSize="18dp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextSecondValue"
+        android:inputType="numberDecimal"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/textView2"
-        android:layout_alignBaseline="@id/textView2"
-        android:layout_marginLeft="5dp" />
+        android:layout_toEndOf="@id/textViewSecondValue"
+        android:layout_alignBaseline="@id/textViewSecondValue"
+        android:layout_marginStart="5dp" />
 
     <Button
         android:id="@+id/buttonAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="+"
-        android:textSize="20dp"
-        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/textView2" />
+        android:layout_below="@id/textViewSecondValue"
+        />
 
     <Button
         android:id="@+id/buttonSub"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="-"
-        android:textSize="20dp"
-        android:layout_toRightOf="@id/buttonAdd"
+        android:textSize="20sp"
+        android:layout_toEndOf="@id/buttonAdd"
         android:layout_alignBaseline="@id/buttonAdd"
-        android:layout_below="@id/textView2" />
+        android:layout_below="@id/textViewSecondValue" />
 
     <Button
         android:id="@+id/buttonMult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="*"
-        android:textSize="20dp"
-        android:layout_toLeftOf="@id/buttonDiv"
+        android:textSize="20sp"
+        android:layout_toStartOf="@id/buttonDiv"
         android:layout_alignBaseline="@id/buttonAdd"
-        android:layout_below="@id/textView2" />
+        android:layout_below="@id/textViewSecondValue" />
 
     <Button
         android:id="@+id/buttonDiv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="/"
-        android:textSize="20dp"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/textView2"
+        android:textSize="20sp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/textViewSecondValue"
         android:layout_alignBaseline="@id/buttonAdd"
-        android:layout_marginRight="20dp" />
+        android:layout_marginEnd="20dp" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/resultText"
-        android:textSize="18dp"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_alignEnd="@id/textView"
+        android:layout_alignEnd="@id/textViewFirstValue"
         android:layout_below="@id/buttonAdd"
         android:layout_marginTop="150dp" />
 
     <TextView
-        android:id="@+id/editText3"
+        android:id="@+id/textViewResultValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/textView3"
-        android:layout_alignBaseline="@id/textView3"
-        android:layout_marginLeft="5dp" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/textViewResult"
+        android:layout_alignBaseline="@id/textViewResult"
+        android:layout_marginStart="5dp" />
 
 
 </RelativeLayout>
