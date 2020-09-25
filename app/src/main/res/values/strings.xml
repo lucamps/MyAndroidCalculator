@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">My Calculator</string>
+
+    <string name="firstValue">First Value:</string>
+    <string name="secondValue">Second Value:</string>
+    <string name="resultText">Result:</string>
+    <string name="resultValue"></string>
+
 </resources>
