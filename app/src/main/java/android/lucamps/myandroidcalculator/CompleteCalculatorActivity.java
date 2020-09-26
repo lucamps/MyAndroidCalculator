@@ -12,6 +12,7 @@ import android.widget.EditText;
 public class CompleteCalculatorActivity extends AppCompatActivity {
     boolean previousWasANumber = false;
     boolean dotOnOperation = false;
+    boolean alreadyHadCalculation = false;
     String[] operation;
 
     boolean isANumber(char a){
@@ -198,8 +199,16 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         add_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber){
+                if(previousWasANumber && !alreadyHadCalculation){
                     display.setText(display.getText().toString() + "+");
+                    previousWasANumber = false;
+                    dotOnOperation = false;
+                    alreadyHadCalculation = true;
+                }
+                else if(alreadyHadCalculation){
+                    getAnswer(display);
+                    display.setText(display.getText().toString() + '+');
+                    alreadyHadCalculation = true;
                     previousWasANumber = false;
                     dotOnOperation = false;
                 }
@@ -209,8 +218,16 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         sub_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber){
+                if(previousWasANumber && !alreadyHadCalculation){
                     display.setText(display.getText().toString() + "-");
+                    previousWasANumber = false;
+                    dotOnOperation = false;
+                    alreadyHadCalculation = true;
+                }
+                else if(alreadyHadCalculation){
+                    getAnswer(display);
+                    display.setText(display.getText().toString() + '-');
+                    alreadyHadCalculation = true;
                     previousWasANumber = false;
                     dotOnOperation = false;
                 }
@@ -220,8 +237,16 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         mult_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber){
+                if(previousWasANumber && !alreadyHadCalculation){
                     display.setText(display.getText().toString() + "*");
+                    previousWasANumber = false;
+                    dotOnOperation = false;
+                    alreadyHadCalculation = true;
+                }
+                else if(alreadyHadCalculation){
+                    getAnswer(display);
+                    display.setText(display.getText().toString() + '*');
+                    alreadyHadCalculation = true;
                     previousWasANumber = false;
                     dotOnOperation = false;
                 }
@@ -231,8 +256,16 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         div_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber){
+                if(previousWasANumber && !alreadyHadCalculation){
                     display.setText(display.getText().toString() + "/");
+                    previousWasANumber = false;
+                    dotOnOperation = false;
+                    alreadyHadCalculation = true;
+                }
+                else if(alreadyHadCalculation){
+                    getAnswer(display);
+                    display.setText(display.getText().toString() + '/');
+                    alreadyHadCalculation = true;
                     previousWasANumber = false;
                     dotOnOperation = false;
                 }
@@ -291,10 +324,9 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getAnswer(display);
+                alreadyHadCalculation = false;
             }
         });
-
-
 
     }
 
