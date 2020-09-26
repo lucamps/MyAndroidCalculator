@@ -3,6 +3,7 @@ package android.lucamps.myandroidcalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,9 +12,16 @@ import android.widget.EditText;
 public class CompleteCalculatorActivity extends AppCompatActivity {
     boolean previousWasANumber = false;
 
+    boolean isANumber(char a){
+        if(a >= '0' && a <= '9')
+            return true;
+        return false;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        final double value = 0;
+        final double answer = 0;
+        String[] operation;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete_calculator);
@@ -45,100 +53,70 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         num0.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(0));
-                else
-                    display.setText(display.getText().toString() + 0);
+                display.setText(display.getText().toString() + 0);
                 previousWasANumber = true;
             }
         });
         num1.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(1));
-                else
-                    display.setText(display.getText().toString() + 1);
+                display.setText(display.getText().toString() + 1);
                 previousWasANumber = true;
             }
         });
         num2.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(2));
-                else
-                    display.setText(display.getText().toString() + 2);
+                display.setText(display.getText().toString() + 2);
                 previousWasANumber = true;
             }
         });
         num3.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(3));
-                else
-                    display.setText(display.getText().toString() + 3);
+                display.setText(display.getText().toString() + 3);
                 previousWasANumber = true;
             }
         });
         num4.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(4));
-                else
-                    display.setText(display.getText().toString() + 4);
+                display.setText(display.getText().toString() + 4);
                 previousWasANumber = true;
             }
         });
         num5.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(5));
-                else
-                    display.setText(display.getText().toString() + 5);
+                display.setText(display.getText().toString() + 5);
                 previousWasANumber = true;
             }
         });
         num6.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(6));
-                else
-                    display.setText(display.getText().toString() + 6);
+                display.setText(display.getText().toString() + 6);
                 previousWasANumber = true;
             }
         });
         num7.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(7));
-                else
-                    display.setText(display.getText().toString() + 7);
+                display.setText(display.getText().toString() + 7);
                 previousWasANumber = true;
             }
         });
         num8.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(8));
-                else
-                    display.setText(display.getText().toString() + 8);
+                display.setText(display.getText().toString() + 8);
                 previousWasANumber = true;
             }
         });
         num9.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!previousWasANumber)
-                    display.setText(String.valueOf(9));
-                else
-                    display.setText(display.getText().toString() + 9);
+                display.setText(display.getText().toString() + 9);
                 previousWasANumber = true;
             }
         });
@@ -147,11 +125,93 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(previousWasANumber){
-                    display.setText(display.getText().toString() + '+');
+                    display.setText(display.getText().toString() + "+");
                     previousWasANumber = false;
                 }
             }
         });
+
+        sub_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(previousWasANumber){
+                    display.setText(display.getText().toString() + "-");
+                    previousWasANumber = false;
+                }
+            }
+        });
+
+        mult_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(previousWasANumber){
+                    display.setText(display.getText().toString() + "*");
+                    previousWasANumber = false;
+                }
+            }
+        });
+
+        div_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(previousWasANumber){
+                    display.setText(display.getText().toString() + "/");
+                    previousWasANumber = false;
+                }
+            }
+        });
+
+        dot_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(previousWasANumber){
+                    display.setText(display.getText().toString() + '.');
+                    previousWasANumber = false;
+                }
+            }
+        });
+
+        clear_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                display.setText("");
+            }
+        });
+
+        equal_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String temp = display.getText().toString();
+                Log.i("DEBUG_CALCULATOR", "\nThe length of the temp string is: " + temp.length());
+                Log.i("DEBUG_CALCULATOR", "The content of the temp string is: " + temp);
+            }
+        });
+
+
+
+        backspace_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!display.getText().toString().equals("") && display.getText().toString().length() > 1) {
+                    String temp = display.getText().toString();
+                    String txt = "";
+                    for (int i = 0; i < temp.length() - 1; i++)
+                        txt += temp.charAt(i);
+
+                    previousWasANumber = isANumber(txt.charAt(txt.length() - 1));
+
+
+                    display.setText(txt);
+                }
+                else {
+                    display.setText("");
+                    previousWasANumber = false;
+                }
+
+                Log.d("DEBUG_CALCULATOR", "The last digit is a number?: " + previousWasANumber);
+            }
+        });
+
     }
 
 }
