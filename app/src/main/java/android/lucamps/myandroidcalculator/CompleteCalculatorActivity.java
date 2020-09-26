@@ -11,18 +11,15 @@ import android.widget.EditText;
 
 public class CompleteCalculatorActivity extends AppCompatActivity {
     boolean previousWasANumber = false;
+    boolean dotOnOperation = false;
+    String[] operation;
 
     boolean isANumber(char a){
-        if(a >= '0' && a <= '9')
-            return true;
-        return false;
+        return a >= '0' && a <= '9';
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        final double answer = 0;
-        String[] operation;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete_calculator);
         setTitle("Complete Calculator");
@@ -127,6 +124,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 if(previousWasANumber){
                     display.setText(display.getText().toString() + "+");
                     previousWasANumber = false;
+                    dotOnOperation = false;
                 }
             }
         });
@@ -137,6 +135,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 if(previousWasANumber){
                     display.setText(display.getText().toString() + "-");
                     previousWasANumber = false;
+                    dotOnOperation = false;
                 }
             }
         });
@@ -147,6 +146,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 if(previousWasANumber){
                     display.setText(display.getText().toString() + "*");
                     previousWasANumber = false;
+                    dotOnOperation = false;
                 }
             }
         });
@@ -157,6 +157,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 if(previousWasANumber){
                     display.setText(display.getText().toString() + "/");
                     previousWasANumber = false;
+                    dotOnOperation = false;
                 }
             }
         });
@@ -164,9 +165,10 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         dot_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber){
+                if(previousWasANumber && !dotOnOperation){
                     display.setText(display.getText().toString() + '.');
                     previousWasANumber = false;
+                    dotOnOperation = true;
                 }
             }
         });
@@ -175,19 +177,10 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 display.setText("");
+                previousWasANumber = false;
+                dotOnOperation = false;
             }
         });
-
-        equal_bt.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String temp = display.getText().toString();
-                Log.i("DEBUG_CALCULATOR", "\nThe length of the temp string is: " + temp.length());
-                Log.i("DEBUG_CALCULATOR", "The content of the temp string is: " + temp);
-            }
-        });
-
-
 
         backspace_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -195,22 +188,41 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 if(!display.getText().toString().equals("") && display.getText().toString().length() > 1) {
                     String temp = display.getText().toString();
                     String txt = "";
+
+                    //avoiding two points in the same operation
+                    if(temp.charAt(temp.length()-1) == '.')
+                        dotOnOperation = false;
+
                     for (int i = 0; i < temp.length() - 1; i++)
                         txt += temp.charAt(i);
 
                     previousWasANumber = isANumber(txt.charAt(txt.length() - 1));
-
-
                     display.setText(txt);
                 }
                 else {
                     display.setText("");
                     previousWasANumber = false;
+                    dotOnOperation = false;
                 }
 
                 Log.d("DEBUG_CALCULATOR", "The last digit is a number?: " + previousWasANumber);
             }
         });
+
+
+        equal_bt.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operation = display.getText().toString().split("\\+|\\*|/|-");
+                int i=0;
+                for(String a:operation){
+                    Log.i("DEBUG_CALCULATOR", "Operation[" + i +"] = " + a);
+                    i++;
+                }
+            }
+        });
+
+
 
     }
 
