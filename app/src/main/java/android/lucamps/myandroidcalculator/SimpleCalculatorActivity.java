@@ -3,13 +3,10 @@ package android.lucamps.myandroidcalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class SimpleCalculatorActivity extends AppCompatActivity {
     @Override
@@ -18,13 +15,13 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_simple_calculator);
         setTitle("Simple Calculator");
 
-        final EditText valueA = (EditText) findViewById(R.id.editTextFirstValue);
-        final EditText valueB = (EditText) findViewById(R.id.editTextSecondValue);
-        final TextView result = (TextView) findViewById(R.id.textViewResultValue);
-        final Button add_bt = (Button) findViewById(R.id.buttonAdd);
-        final Button sub_bt = (Button) findViewById(R.id.buttonSub);
-        final Button mult_bt = (Button) findViewById(R.id.buttonMult);
-        final Button div_bt = (Button) findViewById(R.id.buttonDiv);
+        final EditText valueA = findViewById(R.id.editTextFirstValue);
+        final EditText valueB = findViewById(R.id.editTextSecondValue);
+        final TextView result = findViewById(R.id.textViewResultValue);
+        final Button add_bt = findViewById(R.id.buttonAdd);
+        final Button sub_bt = findViewById(R.id.buttonSub);
+        final Button mult_bt = findViewById(R.id.buttonMult);
+        final Button div_bt = findViewById(R.id.buttonDiv);
 
 
         add_bt.setOnClickListener(new Button.OnClickListener() {

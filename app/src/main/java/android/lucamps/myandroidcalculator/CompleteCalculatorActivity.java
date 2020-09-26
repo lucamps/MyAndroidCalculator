@@ -103,27 +103,27 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_complete_calculator);
         setTitle("Complete Calculator");
 
-        final EditText display = (EditText) findViewById(R.id.editTextDisplay);
+        final EditText display = findViewById(R.id.editTextDisplay);
 
-        final Button num0 = (Button) findViewById(R.id.button0);
-        final Button num1 = (Button) findViewById(R.id.button1);
-        final Button num2 = (Button) findViewById(R.id.button2);
-        final Button num3 = (Button) findViewById(R.id.button3);
-        final Button num4 = (Button) findViewById(R.id.button4);
-        final Button num5 = (Button) findViewById(R.id.button5);
-        final Button num6 = (Button) findViewById(R.id.button6);
-        final Button num7 = (Button) findViewById(R.id.button7);
-        final Button num8 = (Button) findViewById(R.id.button8);
-        final Button num9 = (Button) findViewById(R.id.button9);
+        final Button num0 = findViewById(R.id.button0);
+        final Button num1 = findViewById(R.id.button1);
+        final Button num2 = findViewById(R.id.button2);
+        final Button num3 = findViewById(R.id.button3);
+        final Button num4 = findViewById(R.id.button4);
+        final Button num5 = findViewById(R.id.button5);
+        final Button num6 = findViewById(R.id.button6);
+        final Button num7 = findViewById(R.id.button7);
+        final Button num8 = findViewById(R.id.button8);
+        final Button num9 = findViewById(R.id.button9);
 
-        final Button dot_bt = (Button) findViewById(R.id.buttonDot);
-        final Button add_bt = (Button) findViewById(R.id.buttonAdd);
-        final Button sub_bt = (Button) findViewById(R.id.buttonSub);
-        final Button mult_bt = (Button) findViewById(R.id.buttonMult);
-        final Button div_bt = (Button) findViewById(R.id.buttonDiv);
-        final Button equal_bt = (Button) findViewById(R.id.buttonEqual);
-        final Button clear_bt = (Button) findViewById(R.id.buttonClear);
-        final Button backspace_bt = (Button) findViewById(R.id.buttonBackspace);
+        final Button dot_bt = findViewById(R.id.buttonDot);
+        final Button add_bt = findViewById(R.id.buttonAdd);
+        final Button sub_bt = findViewById(R.id.buttonSub);
+        final Button mult_bt = findViewById(R.id.buttonMult);
+        final Button div_bt = findViewById(R.id.buttonDiv);
+        final Button equal_bt = findViewById(R.id.buttonEqual);
+        final Button clear_bt = findViewById(R.id.buttonClear);
+        final Button backspace_bt = findViewById(R.id.buttonBackspace);
         backspace_bt.setText("<<");
 
         num0.setOnClickListener(new Button.OnClickListener() {
@@ -315,7 +315,6 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 Log.d("DEBUG_CALCULATOR", "The last digit is a number?: " + previousWasANumber);
             }
         });
-
 
         equal_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
