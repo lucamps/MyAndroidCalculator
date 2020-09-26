@@ -9,6 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class SimpleCalculatorActivity extends AppCompatActivity {
+    static double textToDouble(final EditText text){
+        String temp = text.getText().toString().replace(",",".");
+        return Double.parseDouble(temp);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +27,6 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         final Button sub_bt = findViewById(R.id.buttonSub);
         final Button mult_bt = findViewById(R.id.buttonMult);
         final Button div_bt = findViewById(R.id.buttonDiv);
-
 
         add_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -54,10 +58,4 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
         });
 
     }
-
-    static double textToDouble(final EditText text){
-        String temp = text.getText().toString().replace(",",".");
-        return Double.parseDouble(temp);
-    }
-
 }

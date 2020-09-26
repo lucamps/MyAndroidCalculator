@@ -10,8 +10,8 @@ import android.widget.EditText;
 
 
 public class CompleteCalculatorActivity extends AppCompatActivity {
-    boolean previousWasANumber = false;
-    boolean dotOnOperation = false;
+    boolean previousWasANumber = false; //variable created to avoid invalid symbols in the expression (like 1+-2).
+    boolean dotOnOperation = false; //variable created to avoid invalid dots in the expression (like 1.0.1).
     boolean alreadyHadCalculation = false;
     String[] operation;
 
@@ -19,6 +19,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         return a >= '0' && a <= '9';
     }
 
+    //method to check the input validation to get the answer.
     boolean validInput(EditText display){
         String[] noSignals;
         noSignals = display.getText().toString().split("\\+|\\*|/|-");
@@ -29,9 +30,11 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         return false;
     }
 
+    //Gets the answer of what appears on the display
     void getAnswer(EditText display){
         if(validInput(display)) {
             String temp = display.getText().toString();
+
             //Finding the operation of sentence
             char op;
             boolean isNegative = false;
@@ -45,6 +48,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                 op = '/';
             else
                 op = 'N';
+
             //special case: negative number on beginning
             if (temp.indexOf('-') == 0) {
                 isNegative = true;
@@ -53,8 +57,9 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
                     Log.d("DEBUG_CALCULATOR", "SPECIAL CASE: " + temp.indexOf('-', temp.indexOf('-') + 1));
                 }
             }
-            operation = temp.split("\\+|\\*|/|-");
 
+            //splitting the content of the display
+            operation = temp.split("\\+|\\*|/|-");
             int i = 0;
             for (String a : operation) {
                 Log.i("DEBUG_CALCULATOR", "Operation[" + i + "] = " + a);
@@ -62,11 +67,9 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             }
             Log.i("DEBUG_CALCULATOR", "Operation symbol: " + op);
 
-            //Calculating the answer
-
+            //Getting the initial values for the answer
             double answer;
             double secondNumber;
-
             if (isNegative) {
                 answer = -Double.parseDouble(operation[1]);
                 secondNumber = Double.parseDouble(operation[2]);
@@ -76,6 +79,8 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             }
 
             Log.d("DEBUG_CALCULATOR", "first number: " + answer + ", second number: " + secondNumber);
+
+            //Calculating the answer
             switch (op) {
                 case '+':
                     answer += secondNumber;
