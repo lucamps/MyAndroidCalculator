@@ -92,6 +92,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             }
             display.setText(String.valueOf(answer));
             previousWasANumber = true;
+            alreadyHadCalculation = false;
             dotOnOperation = (String.valueOf(answer).indexOf('.') != -1);
         }
     }
@@ -199,18 +200,17 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         add_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber && !alreadyHadCalculation){
-                    display.setText(display.getText().toString() + "+");
+                if (previousWasANumber) {
+                    if (alreadyHadCalculation) {
+                        getAnswer(display);
+                        display.setText(display.getText().toString() + '+');
+                    }
+                    else
+                        display.setText(display.getText().toString() + "+");
+
                     previousWasANumber = false;
                     dotOnOperation = false;
                     alreadyHadCalculation = true;
-                }
-                else if(alreadyHadCalculation){
-                    getAnswer(display);
-                    display.setText(display.getText().toString() + '+');
-                    alreadyHadCalculation = true;
-                    previousWasANumber = false;
-                    dotOnOperation = false;
                 }
             }
         });
@@ -218,18 +218,17 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         sub_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber && !alreadyHadCalculation){
-                    display.setText(display.getText().toString() + "-");
+                if (previousWasANumber) {
+                    if (alreadyHadCalculation) {
+                        getAnswer(display);
+                        display.setText(display.getText().toString() + '-');
+                    }
+                    else
+                        display.setText(display.getText().toString() + "-");
+
                     previousWasANumber = false;
                     dotOnOperation = false;
                     alreadyHadCalculation = true;
-                }
-                else if(alreadyHadCalculation){
-                    getAnswer(display);
-                    display.setText(display.getText().toString() + '-');
-                    alreadyHadCalculation = true;
-                    previousWasANumber = false;
-                    dotOnOperation = false;
                 }
             }
         });
@@ -237,18 +236,17 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         mult_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber && !alreadyHadCalculation){
-                    display.setText(display.getText().toString() + "*");
+                if (previousWasANumber) {
+                    if (alreadyHadCalculation) {
+                        getAnswer(display);
+                        display.setText(display.getText().toString() + '*');
+                    }
+                    else
+                        display.setText(display.getText().toString() + "*");
+
                     previousWasANumber = false;
                     dotOnOperation = false;
                     alreadyHadCalculation = true;
-                }
-                else if(alreadyHadCalculation){
-                    getAnswer(display);
-                    display.setText(display.getText().toString() + '*');
-                    alreadyHadCalculation = true;
-                    previousWasANumber = false;
-                    dotOnOperation = false;
                 }
             }
         });
@@ -256,18 +254,17 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         div_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(previousWasANumber && !alreadyHadCalculation){
-                    display.setText(display.getText().toString() + "/");
+                if (previousWasANumber) {
+                    if (alreadyHadCalculation) {
+                        getAnswer(display);
+                        display.setText(display.getText().toString() + '/');
+                    }
+                    else
+                        display.setText(display.getText().toString() + "/");
+
                     previousWasANumber = false;
                     dotOnOperation = false;
                     alreadyHadCalculation = true;
-                }
-                else if(alreadyHadCalculation){
-                    getAnswer(display);
-                    display.setText(display.getText().toString() + '/');
-                    alreadyHadCalculation = true;
-                    previousWasANumber = false;
-                    dotOnOperation = false;
                 }
             }
         });
@@ -324,7 +321,6 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 getAnswer(display);
-                alreadyHadCalculation = false;
             }
         });
 
