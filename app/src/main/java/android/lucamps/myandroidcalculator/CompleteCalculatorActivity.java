@@ -18,6 +18,83 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         return a >= '0' && a <= '9';
     }
 
+    boolean validInput(EditText display){
+        String[] noSignals;
+        noSignals = display.getText().toString().split("\\+|\\*|/|-");
+        if(noSignals.length > 1 && !noSignals[0].equals(""))
+            return true;
+        else if (noSignals[0].equals("") && noSignals.length > 2)
+            return true;
+        return false;
+    }
+
+    void getAnswer(EditText display){
+        if(validInput(display)) {
+            String temp = display.getText().toString();
+            //Finding the operation of sentence
+            char op;
+            boolean isNegative = false;
+            if (temp.indexOf('+') != -1)
+                op = '+';
+            else if (temp.indexOf('-') != -1 && temp.indexOf('-') != 0)
+                op = '-';
+            else if (temp.indexOf('*') != -1)
+                op = '*';
+            else if (temp.indexOf('/') != -1)
+                op = '/';
+            else
+                op = 'N';
+            //special case: negative number on beginning
+            if (temp.indexOf('-') == 0) {
+                isNegative = true;
+                if (temp.indexOf('-', temp.indexOf('-') + 1) != -1) { //if '-' occurs twice
+                    op = '-';
+                    Log.d("DEBUG_CALCULATOR", "SPECIAL CASE: " + temp.indexOf('-', temp.indexOf('-') + 1));
+                }
+            }
+            operation = temp.split("\\+|\\*|/|-");
+
+            int i = 0;
+            for (String a : operation) {
+                Log.i("DEBUG_CALCULATOR", "Operation[" + i + "] = " + a);
+                i++;
+            }
+            Log.i("DEBUG_CALCULATOR", "Operation symbol: " + op);
+
+            //Calculating the answer
+
+            double answer;
+            double secondNumber;
+
+            if (isNegative) {
+                answer = -Double.parseDouble(operation[1]);
+                secondNumber = Double.parseDouble(operation[2]);
+            } else {
+                answer = Double.parseDouble(operation[0]);
+                secondNumber = Double.parseDouble(operation[1]);
+            }
+
+            Log.d("DEBUG_CALCULATOR", "first number: " + answer + ", second number: " + secondNumber);
+            switch (op) {
+                case '+':
+                    answer += secondNumber;
+                    break;
+                case '-':
+                    answer -= secondNumber;
+                    break;
+                case '*':
+                    answer *= secondNumber;
+                    break;
+                case '/':
+                    answer /= secondNumber;
+                    break;
+            }
+            display.setText(String.valueOf(answer));
+            previousWasANumber = true;
+            dotOnOperation = (String.valueOf(answer).indexOf('.') != -1);
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -213,70 +290,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
         equal_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String temp = display.getText().toString();
-                //Finding the operation of sentence
-                char op;
-                boolean isNegative = false;
-                if(temp.indexOf('+') != -1)
-                    op = '+';
-                else if(temp.indexOf('-') != -1 && temp.indexOf('-') != 0)
-                    op = '-';
-                else if(temp.indexOf('*') != -1)
-                    op = '*';
-                else if(temp.indexOf('/') != -1)
-                    op = '/';
-                else
-                    op = 'N';
-                //special case: negative number on beginning
-                if (temp.indexOf('-') == 0){
-                    isNegative = true;
-                    if(temp.indexOf('-', temp.indexOf('-') + 1) != -1){ //if '-' occurs twice
-                        op = '-';
-                        Log.d("DEBUG_CALCULATOR", "SPECIAL CASE: " + temp.indexOf('-', temp.indexOf('-') + 1));
-                    }
-                }
-                operation = temp.split("\\+|\\*|/|-");
-
-                int i=0;
-                for(String a:operation){
-                    Log.i("DEBUG_CALCULATOR", "Operation[" + i +"] = " + a);
-                    i++;
-                }
-                Log.i("DEBUG_CALCULATOR", "Operation symbol: " + op);
-
-                //Calculating the answer
-
-                double answer;
-                double secondNumber;
-
-                if(isNegative) {
-                    answer = -Double.parseDouble(operation[1]);
-                    secondNumber = Double.parseDouble(operation[2]);
-                }
-                else{
-                    answer = Double.parseDouble(operation[0]);
-                    secondNumber = Double.parseDouble(operation[1]);
-                }
-
-                Log.d("DEBUG_CALCULATOR", "first number: " + answer + ", second number: " + secondNumber);
-                switch (op){
-                    case '+':
-                        answer += secondNumber;
-                        break;
-                    case '-':
-                        answer -= secondNumber;
-                        break;
-                    case '*':
-                        answer *= secondNumber;
-                        break;
-                    case '/':
-                        answer /= secondNumber;
-                        break;
-                }
-                display.setText(String.valueOf(answer));
-                previousWasANumber = true;
-                dotOnOperation = (String.valueOf(answer).indexOf('.') != -1);
-
+                getAnswer(display);
             }
         });
 
