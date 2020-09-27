@@ -3,15 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/button"
         android:layout_width="230dp"
         android:layout_height="48dp"
-        android:layout_alignParentTop="true"
+        android:layout_above="@id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="137dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"
         android:onClick="toSimple"
         android:text="@string/Simple" />
 
@@ -19,9 +21,8 @@
         android:id="@+id/button2"
         android:layout_width="230dp"
         android:layout_height="48dp"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="234dp"
+        android:layout_centerVertical="true"
         android:text="@string/Complete"
         android:onClick="toComplete" />
 

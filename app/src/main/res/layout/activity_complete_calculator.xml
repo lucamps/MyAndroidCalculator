@@ -3,27 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context=".CompleteCalculatorActivity">
 
     <EditText
         android:id="@+id/editTextDisplay"
-        android:layout_width="251dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
         android:enabled="false"
         android:inputType="textAutoComplete"
-        android:textSize="23sp"
-        android:textStyle="bold"
+        android:textSize="24sp"
+         
         android:textColor="#222"/>
 
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="7"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/editTextDisplay"
         android:layout_marginTop="20dp"
         android:layout_below="@id/editTextDisplay"
@@ -31,153 +32,154 @@
     <Button
         android:id="@+id/button8"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="8"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/button7"
         android:layout_alignBaseline="@id/button7"
         android:layout_below="@id/editTextDisplay" />
     <Button
         android:id="@+id/button9"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="9"
-        android:textSize="20sp"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/button8"
         android:layout_alignBaseline="@id/button8"
         android:layout_below="@id/editTextDisplay" />
     <Button
         android:id="@+id/button4"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="4"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button7"
         android:layout_below="@id/button7" />
     <Button
         android:id="@+id/button5"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="5"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button8"
         android:layout_below="@id/button8" />
     <Button
         android:id="@+id/button6"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="6"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button9"
         android:layout_below="@id/button9" />
     <Button
         android:id="@+id/button1"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="1"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button4"
         android:layout_below="@id/button4" />
     <Button
         android:id="@+id/button2"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="2"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button5"
         android:layout_below="@id/button5" />
     <Button
         android:id="@+id/button3"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="3"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button6"
         android:layout_below="@id/button6" />
     <Button
         android:id="@+id/button0"
         android:tag="number"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="0"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button1"
         android:layout_alignEnd="@id/button2"
         android:layout_below="@id/button1" />
     <Button
         android:id="@+id/buttonDot"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="."
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/button3"
         android:layout_below="@id/button3" />
     <Button
         android:id="@+id/buttonDiv"
         android:tag="operation"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="/"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/button9"
         android:layout_alignBaseline="@id/button9" />
     <Button
         android:id="@+id/buttonMult"
         android:tag="operation"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="x"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/button6"
         android:layout_alignBaseline="@id/button6" />
     <Button
         android:id="@+id/buttonSub"
         android:tag="operation"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="-"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/button3"
         android:layout_alignBaseline="@id/button3" />
     <Button
         android:id="@+id/buttonAdd"
         android:tag="operation"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="+"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/buttonDot"
         android:layout_alignBaseline="@id/buttonDot" />
     <Button
         android:id="@+id/buttonBackspace"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="A"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/buttonDiv"
         android:layout_alignBaseline="@id/buttonDiv" />
     <Button
         android:id="@+id/buttonClear"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="C"
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_toEndOf="@id/buttonMult"
         android:layout_alignBaseline="@id/buttonMult" />
     <Button
         android:id="@+id/buttonEqual"
-        android:layout_width="50dp"
+        android:layout_width="@dimen/buttons_width"
         android:layout_height="wrap_content"
         android:text="="
-        android:textSize="20sp"
+        android:textSize="@dimen/buttons_text_size"
         android:layout_alignStart="@id/buttonClear"
         android:layout_alignBottom="@id/buttonAdd"
         android:layout_below="@id/buttonClear"  />
