@@ -5,18 +5,17 @@
     android:layout_height="match_parent"
     tools:context=".CompleteCalculatorActivity">
 
-
     <EditText
         android:id="@+id/editTextDisplay"
-        android:layout_width="248dp"
+        android:layout_width="251dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="100dp"
         android:enabled="false"
         android:inputType="textAutoComplete"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:textColor="#222"/>
 
 
     <Button
@@ -25,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="7"
         android:textSize="20sp"
-        android:layout_marginStart="80dp"
+        android:layout_alignStart="@id/editTextDisplay"
         android:layout_marginTop="20dp"
         android:layout_below="@id/editTextDisplay"
         />

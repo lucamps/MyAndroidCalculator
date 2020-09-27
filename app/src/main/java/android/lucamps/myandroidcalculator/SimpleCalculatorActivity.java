@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.text.DecimalFormat;
 
 public class SimpleCalculatorActivity extends AppCompatActivity {
     static double textToDouble(final EditText text){
@@ -32,28 +33,28 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 double value = textToDouble(valueA) + textToDouble(valueB);
-                result.setText(String.valueOf(value));
+                result.setText(new DecimalFormat("#,##0.####").format(value));
             }
         });
         sub_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double value = textToDouble(valueA) - textToDouble(valueB);
-                result.setText(String.valueOf(value));
+                result.setText(new DecimalFormat("#,##0.####").format(value));
             }
         });
         mult_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double value = textToDouble(valueA) * textToDouble(valueB);
-                result.setText(String.valueOf(value));
+                result.setText(new DecimalFormat("#,##0.####").format(value));
             }
         });
         div_bt.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double value = textToDouble(valueA) / textToDouble(valueB);
-                result.setText(String.valueOf(value));
+                result.setText(new DecimalFormat("#,##0.####").format(value));
             }
         });
 
