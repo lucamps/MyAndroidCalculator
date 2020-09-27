@@ -9,3 +9,12 @@ Primeiro projeto prático da disciplina INF-311 (Programação Para Dispositivos
 * **Calculadora Completa:** Um visor e diversos botões simulando um "numpad" de computador.
 
 **OBS:** A calculadora completa ao tratar mais de uma sentença, no momento em que é adicionado um segundo operador matemático, é mostrada a resposta + esse novo operador na tela  (similar ao comportamento de uma calculadora comum).
+
+### Screenshots
+<table>
+  <tr>
+    <td><img src="screenshots/screen1.png"></td>
+    <td><img src="screenshots/screen2.png"></td>
+    <td><img src="screenshots/screen3.png"></td>
+  </tr>
+ </table>
