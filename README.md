@@ -9,3 +9,12 @@ First practical project of the discipline INF-311 (Programming for Mobile Device
 * **Complete Calculator**: A display and several buttons simulating a computer "numpad".
 
 **NOTE:** The complete calculator when handling more than one sentence, at the moment when a second mathematical operator is added, the answer + this new operator is shown on the screen (similar to the behavior of a common calculator).
+
+### Screenshots
+<table>
+  <tr>
+    <td><img src="screenshots/screen1.png"></td>
+    <td><img src="screenshots/screen2.png"></td>
+    <td><img src="screenshots/screen3.png"></td>
+  </tr>
+ </table>
