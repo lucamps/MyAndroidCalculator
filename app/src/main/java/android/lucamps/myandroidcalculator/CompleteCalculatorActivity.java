@@ -106,7 +106,7 @@ public class CompleteCalculatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complete_calculator);
-        setTitle("Complete Calculator");
+        this.setTitle(R.string.completeCalculator);
 
         final EditText display = findViewById(R.id.editTextDisplay);
 

@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">My Calculator</string>
+    <string name="simpleCalculator">Simple Calculator</string>
+    <string name="completeCalculator">Complete Calculator</string>
 
     <string name="firstValue">First Value:</string>
     <string name="secondValue">Second Value:</string>

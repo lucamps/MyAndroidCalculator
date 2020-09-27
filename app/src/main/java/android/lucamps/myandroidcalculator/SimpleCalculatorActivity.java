@@ -19,7 +19,7 @@ public class SimpleCalculatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_calculator);
-        setTitle("Simple Calculator");
+        this.setTitle(R.string.simpleCalculator);
 
         final EditText valueA = findViewById(R.id.editTextFirstValue);
         final EditText valueB = findViewById(R.id.editTextSecondValue);

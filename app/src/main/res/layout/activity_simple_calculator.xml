@@ -9,7 +9,7 @@
         android:id="@+id/textViewFirstValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
+        android:layout_alignEnd="@id/buttonSub"
         android:layout_marginTop="120dp"
         android:text="@string/firstValue"
         android:textSize="20sp"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/textViewFirstValue"
         android:layout_alignBaseline="@id/textViewFirstValue"
-        android:layout_marginStart="5dp"
+        android:layout_alignStart="@id/buttonMult"
         android:autofillHints="" />
 
     <TextView
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/textViewSecondValue"
         android:layout_alignBaseline="@id/textViewSecondValue"
-        android:layout_marginStart="5dp" />
+        android:layout_alignStart="@id/editTextFirstValue" />
 
     <Button
         android:id="@+id/buttonAdd"
