@@ -94,7 +94,8 @@
         android:text="@string/resultText"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:layout_alignEnd="@id/textViewFirstValue"
+        android:layout_alignEnd="@id/buttonSub"
+        android:layout_marginEnd="5dp"
         android:layout_below="@id/buttonAdd"
         android:layout_marginTop="150dp" />
 
@@ -106,6 +107,8 @@
         android:textStyle="bold"
         android:layout_toEndOf="@id/textViewResult"
         android:layout_alignBaseline="@id/textViewResult"
+        android:layout_alignStart="@id/buttonMult"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp" />
 
 
